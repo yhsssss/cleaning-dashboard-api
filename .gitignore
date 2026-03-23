@@ -1,0 +1,78 @@
+# ===========================
+# Python
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# ===========================
+# 가상환경 (Dependency)
+# ===========================
+.venv/
+venv/
+env/
+ENV/
+.env/
+virtualenv/
+
+# ===========================
+# 환경변수 (민감정보)
+# ===========================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ===========================
+# FastAPI / Uvicorn
+# ===========================
+*.log
+logs/
+
+# ===========================
+# Database
+# ===========================
+*.db
+*.sqlite
+*.sqlite3
+
+# ===========================
+# IDE
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ===========================
+# pytest / coverage
+# ===========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ===========================
+# mypy
+# ===========================
+.mypy_cache/
+.dmypy.json
+
+# ===========================
+# Docker
+# ===========================
+docker-compose.override.yml

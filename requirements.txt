@@ -1,0 +1,7 @@
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+sqlalchemy==2.0.30
+pydantic==2.7.1
+pandas==2.2.2
+python-multipart==0.0.9    # 파일 업로드
+aiofiles==23.2.1
