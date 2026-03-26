@@ -90,8 +90,13 @@ def _apply_filters(df: pd.DataFrame, filters: list, logic: str = "AND") -> pd.Da
         op    = f["op"]
         value = f["value"]
 
-        # merge된 컬럼명 탐색: "ECG_VISIT" 또는 "VISIT"
-        col = f"{f['dataset']}_{field}" if f"{f['dataset']}_{field}" in df.columns else field
+        col = (
+            field                          if field                          in df.columns else
+            f"{field}_{f['dataset']}"      if f"{field}_{f['dataset']}"      in df.columns else
+            f"{f['dataset']}_{field}"      if f"{f['dataset']}_{field}"      in df.columns else
+            field  # fallback
+        )
+        
         if col not in df.columns:
             logger.warning(f"Filter field '{col}' not found in DataFrame. Skipping.")
             continue
