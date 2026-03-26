@@ -75,8 +75,8 @@ class Rule(Base):
     )
 
     # relationships
-    issues    = relationship("Issue",          back_populates="rule")
-    audit_log = relationship("RuleAuditLog",   back_populates="rule")
+    issues    = relationship("Issue", back_populates="rule", passive_deletes=True)
+    audit_log = relationship("RuleAuditLog", back_populates="rule", passive_deletes=True)
 
     # ── JSON 편의 프로퍼티 ──────────────────────────────────
 
@@ -234,7 +234,7 @@ class RuleAuditLog(Base):
     __tablename__ = "rule_audit_log"
 
     id              = Column(Integer, primary_key=True, autoincrement=True)
-    rule_id         = Column(Integer, ForeignKey("rules.id"), nullable=False)
+    rule_id = Column(Integer, ForeignKey("rules.id", ondelete="CASCADE"), nullable=False)
     action          = Column(String(20), nullable=False)
     # created | updated | deleted | enabled | disabled
 
